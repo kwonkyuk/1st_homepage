@@ -1,0 +1,54 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "A design asset or infrastructure project",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string", "enum": ["Sculpture", "Facility", "Space", "Visual"] },
+        "description": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "client": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["id", "title", "category", "description", "imageUrl"]
+    },
+    "SignageScene": {
+      "title": "SignageScene",
+      "description": "A scene for the smart signage rotation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["id", "title", "imageUrl"]
+    },
+    "HeroScene": {
+      "title": "HeroScene",
+      "description": "A scene for the main hero rotation",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["id", "imageUrl"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Collection of design assets and infrastructure projects"
+    },
+    "/signage/{signageId}": {
+      "schema": "SignageScene",
+      "description": "Collection of smart signage rotation scenes"
+    },
+    "/hero/{heroId}": {
+      "schema": "HeroScene",
+      "description": "Collection of main hero rotation scenes"
+    }
+  }
+}
